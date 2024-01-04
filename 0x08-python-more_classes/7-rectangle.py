@@ -6,10 +6,16 @@ Defines a class Rectangle
 
 class Rectangle:
     """Representation of a Rectangle"""
+
+    number_of_instances = 0
+
+    print_symbol = '#'
+
     def __init__(self, width=0, height=0):
         """Initializes the rectangle"""
         self.height = height
         self.width = width
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -45,18 +51,22 @@ class Rectangle:
 
     def perimeter(self):
         """returns the perimeter of the rectangle"""
-        if self.__width == 0 or self.__height == 0:
+        if not self.__width or not self.__height:
             return 0
-        return (self.__width * 2) + (self.__height * 2)
+        return (self.__width + self.__height) * 2
 
     def __str__(self):
-        """returns the printable string of the rectangle"""
-        string = ""
-        if self.__width != 0 and self.__height != 0:
-            string += "\n".join("#" * self.__width
-                    for j in range(self.__height))
-        return string
+        """returns string of the rectangle"""
+        if not self.width or not self.height:
+            return ""
+        return ((str(self.print_symbol) * self.width + "\n") *
+                self.height)[:-1]
 
     def __repr__(self):
         """returns a string representation of the rectangle for reproduction"""
-        return "Rectangle ({:d}, {:d})".format(self.width, self.height)
+        return "Rectangle(" + str(self.width) + ", " + str(self.height) + ")"
+
+    def __del__(self):
+        """Print message for every deletion of a Rectangle."""
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1

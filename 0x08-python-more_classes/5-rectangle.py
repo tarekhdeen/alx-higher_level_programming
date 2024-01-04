@@ -54,9 +54,13 @@ class Rectangle:
         string = ""
         if self.__width != 0 and self.__height != 0:
             string += "\n".join("#" * self.__width
-                    for j in range(self.__height))
+                                for j in range(self.__height))
         return string
 
     def __repr__(self):
         """returns a string representation of the rectangle for reproduction"""
         return "Rectangle ({:d}, {:d})".format(self.width, self.height)
+
+    def __del__(self):
+        """Print message for every deletion of a Rectangle."""
+        print("Bye rectangle...")
