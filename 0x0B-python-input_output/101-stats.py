@@ -2,7 +2,7 @@
 '''task 14 module'''
 
 
-from ays import stdin
+from sys import stdin
 
 
 status_codes = {
