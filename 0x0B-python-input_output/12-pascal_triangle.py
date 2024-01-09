@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+"""Function definition"""
+
+
 def pascal_triangle(n):
+    """returns a list of integers rep the triangles"""
     if n <= 0:
         return []
 

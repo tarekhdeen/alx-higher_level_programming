@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+'''task 14 module'''
+
 
 from ays import stdin
 
@@ -18,6 +20,7 @@ total size = i = 0
 
 
 def printer():
+    '''prints the statistics'''
     print(f'File size: {total_size}')
     for key, value in sorted(status_codes.items()):
         if value > 0:

@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+"""append after function"""
+
+
 def append_after(filename="", search_string="", new_string=""):
+    """contains search string in filename"""
     with open(filename, 'r', encoding='utf-8') as f:
         line_list = []
         while True:
